@@ -41,7 +41,7 @@ get_devices(function(devices) {
         cell0.innerHTML = device.name;
         cell1.innerHTML = "<button onclick=\"set_gpio('" + device.name + "',1)\">On</button>";
         cell2.innerHTML = "<button onclick=\"set_gpio('" + device.name + "',0)\">Off</button>";
-        cell3.innerHTML = device.state;
+        cell3.innerHTML = JSON.stringify(device.state);
     });
 
 
