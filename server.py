@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, render_template, make_response, request, abort
-from modules.gpio_relay import GPIORelay
+from modules.dummy_relay import GPIORelay
 import io
 
 ###Testing web interface endpoints start
 
 # Create the application instance
-app = Flask(__name__, template_folder="module_templates", static_url_path='/public', static_folder='public') #Sets static public folder
+app = Flask(__name__, template_folder="templates", static_url_path='/public', static_folder='public') #Sets static public folder
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024                         #Sets max file size
 
 ###HTTP files start
@@ -42,7 +42,7 @@ def gpio_post():
     test = GPIORelay(26)
     test.set_state(1)
 
-    return jsonify({}), 200
+    return jsonify({'state': test.get_state()}), 200
 
 ###REST interface endpoints end
 
