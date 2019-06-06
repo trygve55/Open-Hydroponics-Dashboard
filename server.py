@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, make_response, request, abort
-from modules.dummy_relay import GPIORelay
+from modules.gpio_relay import GPIORelay
 import io
 
 ###Testing web interface endpoints start
