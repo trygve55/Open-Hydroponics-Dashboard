@@ -7,7 +7,7 @@ class AM2302(SensorClass):
         self.pin = pin
 
     def get_state(self):
-        humidity, temperature = Adafruit_DHT.read_retry(2302, self.pin)
+        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, self.pin)
         return {
             "humidity": humidity,
             "temperature": temperature
