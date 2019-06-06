@@ -70,6 +70,6 @@ if __name__ == '__main__':
     }'''
 
     #app.run(debug=True, ssl_context=context, port=8443)                    #Enable this line for SSL(HTTPS)
-    app.run(debug=False, port=8080)                                          #Disable this line for SSL(HTTPS)
+    app.run(debug=False, port=8080, host='0.0.0.0')                                          #Disable this line for SSL(HTTPS)
 
 ####Runs server end
