@@ -8,17 +8,11 @@ def thread_sensor(self):
     while True:
         humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, self.pin)
 
-        print(temperature, " ", humidity)
-
-        print(self.temperature, " ", self.humidity)
-
         if humidity is not None and temperature is not None:
-            print("test")
             self.humidity += humidity - self.humidity
             self.temperature += temperature - self.temperature
 
-            print(self.temperature, " ", self.humidity)
-        time.sleep(3)
+        time.sleep(4)
 
 
 class AM2302(SensorClass):
