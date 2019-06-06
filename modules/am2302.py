@@ -4,20 +4,20 @@ import threading
 import time
 
 
-def thread_sensor(self):
+def thread_sensor(test2):
     while True:
-        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, self.pin)
+        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, test2.pin)
 
         print(temperature, " ", humidity)
 
-        print(self.temperature, " ", self.humidity)
+        print(test2.temperature, " ", test2.humidity)
 
         if humidity is not None and temperature is not None:
             print("test")
-            self.humidity = humidity
-            self.temperature = temperature
+            test2.humidity = humidity
+            test2.temperature = temperature
 
-            print(self.temperature, " ", self.humidity)
+            print(test2.temperature, " ", test2.humidity)
         time.sleep(3)
 
 
