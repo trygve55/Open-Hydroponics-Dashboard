@@ -36,10 +36,12 @@ get_devices(function(devices) {
         let cell0 = row.insertCell(0);
         let cell1 = row.insertCell(1);
         let cell2 = row.insertCell(2);
+        let cell3 = row.insertCell(3);
 
         cell0.innerHTML = device.name;
         cell1.innerHTML = "<button onclick=\"set_gpio('" + device.name + "',1)\">On</button>";
         cell2.innerHTML = "<button onclick=\"set_gpio('" + device.name + "',0)\">Off</button>";
+        cell3.innerHTML = device.state;
     });
 
 
