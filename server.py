@@ -40,7 +40,9 @@ def test_post():
 def gpio_post():
 
     test = GPIORelay(26)
-    test.set_state(1)
+
+    data = request.get_json()
+    test.set_state(data['state'])
 
     return jsonify({'state': test.get_state()}), 200
 

@@ -17,4 +17,5 @@ class GPIORelay(SwitchClass):
 
     def set_state(self, state):
         GPIO.output(self.pin, state)
+
         self.state = state
