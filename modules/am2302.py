@@ -15,7 +15,7 @@ def thread_sensor(self):
         if humidity is not None and temperature is not None:
             print("test")
             self.humidity += humidity - self.humidity
-            self.temperature += temperature - self.humidity
+            self.temperature += temperature - self.temperature
 
             print(self.temperature, " ", self.humidity)
         time.sleep(3)
