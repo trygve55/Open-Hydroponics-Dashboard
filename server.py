@@ -4,8 +4,10 @@ from importlib import util
 #Check if running on RPi
 if util.find_spec("RPi") is not None:
     from modules.gpio_relay import GPIORelay
+    from modules.am2302 import AM2302
 else:
     from modules.dummy_relay import GPIORelay
+    from modules.dummy_sensor import DummySensor as AM2302
 
 ###Set up devices start
 
@@ -15,6 +17,7 @@ devices['relay0'] = GPIORelay(26)
 devices['relay1'] = GPIORelay(16)
 devices['relay2'] = GPIORelay(20)
 devices['relay3'] = GPIORelay(21)
+devices['sensor0'] = AM2302(22)
 
 ###Set up devices end
 
@@ -56,7 +59,10 @@ def test_post():
 def get_devices():
     devices_list = list()
     for k in devices.keys():
-        devices_list.append({'name': k})
+        devices_list.append({
+            'name': k,
+            'state': devices[k].get_state()
+        })
 
     return jsonify(devices_list), 200
 
