@@ -26,7 +26,6 @@ class AM2302(SensorClass):
         x.start()
 
     def get_state(self):
-        print(self.temperature, " ", self.humidity)
         return {
             "humidity": self.humidity,
             "temperature": self.temperature
