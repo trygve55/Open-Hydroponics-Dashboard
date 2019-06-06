@@ -16,7 +16,8 @@ class AM2302(SensorClass):
         self.temperature = 0.0
         self.humidity = 0.0
 
-        threading.Thread(target=thread_sensor, args=(self,))
+        x = threading.Thread(target=thread_sensor, args=(self,))
+        x.start()
 
     def get_state(self):
         return {
