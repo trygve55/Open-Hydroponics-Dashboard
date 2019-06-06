@@ -1,9 +1,8 @@
 from flask import Flask, jsonify, render_template, make_response, request, abort
-import sys
-import json
+from importlib import util
 
 #Check if running on RPi
-if 'RPi' in sys.modules:
+if util.find_spec("RPi") is not None:
     from modules.gpio_relay import GPIORelay
 else:
     from modules.dummy_relay import GPIORelay
