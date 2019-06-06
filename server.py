@@ -5,9 +5,11 @@ from importlib import util
 if util.find_spec("RPi") is not None:
     from modules.gpio_relay import GPIORelay
     from modules.am2302 import AM2302
+    from modules.gpio_digital_input import GPIODigitalInput
 else:
     from modules.dummy_relay import GPIORelay
     from modules.dummy_sensor import DummySensor as AM2302
+    from modules.dummy_sensor import DummySensor as GPIODigitalInput
 
 ###Set up devices start
 
@@ -18,6 +20,7 @@ devices['relay1'] = GPIORelay(16)
 devices['relay2'] = GPIORelay(20)
 devices['relay3'] = GPIORelay(21)
 devices['sensor0'] = AM2302(22)
+devices['sensor1'] = GPIODigitalInput(25)
 
 ###Set up devices end
 

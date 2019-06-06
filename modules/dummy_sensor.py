@@ -8,5 +8,5 @@ class DummySensor(SensorClass):
 
     def get_state(self):
         return {
-            'temp': 42.0
+            'temp': 1.0
         }
