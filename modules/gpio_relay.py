@@ -6,7 +6,7 @@ class GPIORelay(SwitchClass):
 
     def __init__(self, pin):
         self.pin = pin
-        self.state = False
+        self.state = 0
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(pin, GPIO.OUT)

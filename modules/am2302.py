@@ -12,7 +12,7 @@ def thread_sensor(self):
             self.humidity += humidity - self.humidity
             self.temperature += temperature - self.temperature
 
-        time.sleep(4)
+        time.sleep(5)
 
 
 class AM2302(SensorClass):
